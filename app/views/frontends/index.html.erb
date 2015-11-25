@@ -1,0 +1,149 @@
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom: 100%;">
+      <div class="container-fluid" id="top">
+        <div class="row">
+          <div class="col-sm-3">
+            <p>тел.: <%= @data.telephone %></p>
+          </div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-5">
+            <p>адрес: <%= @data.address %></p>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="menu-container">
+        <div class="navbar-header">
+          <button type="button" id="menu_button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span>Меню</span> 
+          </button>
+          <a class="navbar-brand" href="#"><%= @data.title %></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-center">
+            <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#">Начало</a></li>
+            <li class="dropdown menu_li">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Категории <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% @categories.each do |category| %>
+                  <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#<%= category.title %>"><%= category.title %></a></li> 
+                <% end %>
+              </ul>
+            </li>
+            <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#about">О нас</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1>Стройматериалы для дома вашей мечты!</h1>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <img class="img-responsive" src="house.jpg"/>
+        </div>
+        <div class="col-sm-6">
+          <h3>Мы продаем:</h3>
+          <ul class="list-group" id="house">
+            <% @categories.each do |category| %>
+              <li><a href="#<%= category.title %>" class="list-group-item"><%= category.title %></a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <% @categories.each do |category| %>
+      <div id="<%= category.title %>" class="product_block">
+        <div class="container-fluid">
+          <h2><%= category.title %></h2>
+            <% category.products.each do |product| %>
+              <div class="row">
+                <div class="col-sm-2">
+                <h4><%= product.title %></h4>
+                </div>
+                <div class="col-sm-5">
+                <img src="<%= product.image %>"/>
+                </div>
+                <div class="col-sm-3">
+                <p><%= product.description %></p>
+                </div>
+                <div class="col-sm-2">
+                <p><strong>Цена:</strong> <%= product.price %></p>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div id="about" class="product_block">
+      <div class="container-fluid">
+        <h2>О нас</h2>
+        <%= simple_format(@data.about) %>
+      </div>
+    </div>
+    <div class="container-fluid" id="bottom">
+      <div class="row">
+        <div class="col-sm-3">
+          <p>тел.: <%= @data.telephone %></p>
+        </div>
+        <div class="col-sm-5">
+          <p>адрес: <%= @data.address %></p>
+        </div>
+        <div class="col-sm-4">
+          <p>Site created by <a href="#">RinSer</a></p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      var shiftWindow = function() { scrollBy(0, -110) };
+      if (location.hash) shiftWindow();
+      window.addEventListener("hashchange", shiftWindow);
+
+      var jq = $.noConflict();
+      jq(document).ready(function(){
+          var submenu = false;
+          if(localStorage.getItem("clickedLinkId")){ // If "clickedLinkClass" has been set.
+              jq('#'+localStorage.getItem("clickedLinkId")).addClass("active"); // add the class "Selected", to the previously clicked link.
+          }
+          jq("li.menu_li").click(function(){ // On click
+              jq(".active").removeClass("active");
+              $('.brand-clicked').removeClass('brand-clicked');
+              jq(this).addClass("active");
+              localStorage.setItem("clickedLinkId", jq(this).attr("id")); // Save the class of the current element in the localStorage.
+          });
+          $('.navbar-brand').click(function(){
+              $('.active').removeClass('active');
+              $(this).addClass('brand-clicked');
+              if (submenu==true) {
+                $('.dropdown-menu').toggle();
+                submenu = false;
+              }
+          });
+          $('.dropdown-toggle').click(function(){
+            if (submenu==false) {
+              $('.dropdown-menu').toggle();
+              submenu = true;
+            } else {
+              $('.dropdown-menu').toggle();
+              submenu = false;
+            }
+          });
+          $('.menu_drp').click(function(){
+            if (submenu==true) {
+                $('.dropdown-menu').toggle();
+                submenu = false;
+              }
+          });
+      });
+    </script>
+  </body>

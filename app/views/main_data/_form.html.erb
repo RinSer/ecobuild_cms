@@ -1,0 +1,33 @@
+<%= form_for(@main_datum) do |f| %>
+  <% if @main_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@main_datum.errors.count, "error") %> prohibited this main_datum from being saved:</h2>
+
+      <ul>
+      <% @main_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Название фирмы" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "Телефон" %><br>
+    <%= f.text_field :telephone %>
+  </div>
+  <div class="field">
+    <%= f.label "Адрес" %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label "О нас" %><br>
+    <%= f.text_area :about %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Сохранить", class: 'save-main' %>
+  </div>
+<% end %>

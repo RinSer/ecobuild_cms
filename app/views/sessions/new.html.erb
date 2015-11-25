@@ -1,0 +1,22 @@
+<div class="admin-views">
+	<div class="login">
+		<h1>Вход</h1>
+
+		<p id="notice"><%= notice %></p>
+
+		<div id="login-form">
+
+		<%= form_for(:admin, url: sessions_path) do |f| %>
+
+			<div class="field"><%= f.label "Имя пользователя" %> <br/> <%= f.text_field :name %></div>
+
+			</p>
+
+			<div class="field"><%= f.label "Пароль" %> <br/> <%= f.password_field :password %></div>
+
+			<div class="actions"><%= f.submit "Войти", class: 'enter' %></div>
+
+		<% end %>
+		</div> <!-- end of login-form -->
+	</div> <!-- end of login -->
+</div> <!-- end of admin-views -->

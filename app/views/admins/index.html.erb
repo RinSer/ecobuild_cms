@@ -1,0 +1,188 @@
+<div class="admins">
+
+<nav id="admin-panel" class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom: 100%;">
+      <div class="container-fluid" id="menu-container">
+        <div class="row">
+        <% if logged_in? %>
+              <div style='float: right;'>
+                <span class="warning">Вы вошли как <%= current_admin.name %> | </span>
+                <span class="danger"><%= link_to "Выйти", logout_path, method: :delete %></span>
+              </div>
+            <% end %>
+        </div>
+        <div class="navbar-header">
+          <button type="button" id="menu_button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span>Меню</span> 
+          </button>
+          <a class="navbar-brand" href="#">Админка</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-center">
+            <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#">Начало</a></li>
+
+            <li class="dropdown menu_li">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Категории <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% @categories.each do |category| %>
+                  <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#<%= category.title %>"><%= category.title %></a></li> 
+                <% end %>
+              </ul>
+            </li>
+            
+            <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#about">О нас</a></li>
+            
+            <li class="menu_li menu_drp"><a data-toggle="collapse" data-target="#myNavbar" href="#administrators">Админы</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<p class="msg" id="notice"><%= notice %></p>
+<p class="msg" id="alert"><%= alert %></p>
+
+<h2>Категории Товаров</h2>
+
+
+    <% @categories.each do |category| %>
+      <h3 id="<%= category.title %>"><%= category.title %></h3>
+      <span class="warning"><%= link_to 'Редактировать категорию', edit_category_path(category) %></span>/<span class="danger"><%= link_to 'Удалить', category, method: :delete %></span>
+      <%# link_to 'Посмотреть', category %>
+
+      <h4>Товары в категории</h4>
+
+      <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Изображение</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% category.products.each do |product| %>
+            <tr>
+              <td><%= product.title %></td>
+              <td><%= product.description %></td>
+              <td><%= product.price %></td>
+              <td><img class="img img-responsive center-block" src="<%= product.image %>" style="height: 50px;" /></td>
+              <td class="warning"><%= link_to 'Редактировать', edit_category_product_path(category, product) %></td>
+              <td class="danger"><%= link_to 'Удалить', [category, product], method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tr>
+            <td class="info"><%= link_to 'Добавить товар', new_category_product_path(category) %></td>
+        </tr>
+      </table>
+      </div> <!-- end of table responsive for products -->
+
+      <br>
+      <br>
+    <% end %>
+
+<br>
+
+<span class="info" style="font-size: 200%;"><%= link_to 'Добавить новую категорию', new_category_path %></span>
+
+<br>
+</br>
+
+<div class="panel-green" id="about">
+
+<h2>Редактирование контактной информации</h2>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Название фирмы</th>
+      <th>Телефон</th>
+      <th>Адрес</th>
+      <th>О нас</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @main_data.each do |main_datum| %>
+      <tr>
+        <td><%= main_datum.title %></td>
+        <td><%= main_datum.telephone %></td>
+        <td><%= main_datum.address %></td>
+        <td><%= main_datum.about %></td>
+      </tr>
+  </tbody>
+</table>
+</div> <!-- end of main info table -->
+
+<br>
+
+<span class="danger"><%= link_to 'Редактировать', edit_main_datum_path(main_datum) %></span>
+<% end %>
+
+</div> <!-- end of the panel-green -->
+
+<div class="panel-blue" id="administrators">
+
+<h2>Добавление/Редактирование пользователей</h2>
+
+<% @admins.each do |admin| %>
+  <h4><%= admin.name %>&nbsp&nbsp<span class="warning"><%= link_to 'Редактировать', edit_admin_path(admin) %></span>/<span class="danger"><%= link_to 'Удалить', admin, method: :delete %></span></h4>
+<% end %>
+
+<br>
+
+<span class="info" style="text-align: center; font-size: 125%;"><%= link_to 'Добавить пользователя', new_admin_path %></span>
+
+</div> <!-- end of the second panel-blue -->
+
+</div> <!-- end of admins -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      var shiftWindow = function() { scrollBy(0, -110) };
+      if (location.hash) shiftWindow();
+      window.addEventListener("hashchange", shiftWindow);
+
+      var jq = $.noConflict();
+      jq(document).ready(function(){
+          var submenu = false;
+          if(localStorage.getItem("clickedLinkId")){ // If "clickedLinkClass" has been set.
+              jq('#'+localStorage.getItem("clickedLinkId")).addClass("active"); // add the class "Selected", to the previously clicked link.
+          }
+          jq("li.menu_li").click(function(){ // On click
+              jq(".active").removeClass("active");
+              $('.brand-clicked').removeClass('brand-clicked');
+              jq(this).addClass("active");
+              localStorage.setItem("clickedLinkId", jq(this).attr("id")); // Save the class of the current element in the localStorage.
+          });
+          $('.navbar-brand').click(function(){
+              $('.active').removeClass('active');
+              $(this).addClass('brand-clicked');
+              if (submenu==true) {
+                $('.dropdown-menu').toggle();
+                submenu = false;
+              }
+          });
+          $('.dropdown-toggle').click(function(){
+            if (submenu==false) {
+              $('.dropdown-menu').toggle();
+              submenu = true;
+            } else {
+              $('.dropdown-menu').toggle();
+              submenu = false;
+            }
+          });
+          $('.menu_drp').click(function(){
+            if (submenu==true) {
+                $('.dropdown-menu').toggle();
+                submenu = false;
+              }
+          });
+      });
+    </script>

@@ -1,0 +1,66 @@
+body {
+	padding-top: 110px;
+	color: #2c3e50;
+}
+
+img {
+    max-width: 100%;
+}
+
+span {
+  color:#ffffff;
+}
+
+#top {
+	background-color: #15A589;
+	text-align: center;
+	color: #ffffff;
+}
+
+#top p {
+	margin-bottom: 0;
+}
+
+/*#menu-container {
+	background-color: #149c82;
+}*/
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+#house li {
+	padding-bottom: 5%;
+}
+
+.product_block {
+	margin-top: 100px;
+}
+
+#bottom {
+	background-color: #15A589;
+	text-align: center;
+	color: #ffffff;
+}
+
+#bottom p {
+	margin-bottom: 0;
+}
+
+#bottom a {
+	color: #2c3e4f;
+}
