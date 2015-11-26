@@ -7,6 +7,10 @@ img {
     max-width: 100%;
 }
 
+.product-img {
+	max-height: 300px;
+}
+
 span {
   color:#ffffff;
 }
