@@ -1,7 +1,7 @@
 <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom: 100%;">
-      <div class="container-fluid" id="top">
+      <div class="container-fluid collapse navbar-collapse" id="top">
         <div class="row">
           <div class="col-sm-3">
             <p>тел.: <%= @data.telephone %></p>
@@ -59,12 +59,16 @@
         <div class="container-fluid">
           <h2><%= category.title %></h2>
             <% category.products.each do |product| %>
-              <div class="row">
+              <div class="row" style="padding-top: 5%;">
                 <div class="col-sm-2">
                 <h4><%= product.title %></h4>
                 </div>
                 <div class="col-sm-5">
-                <img class="product-img" src="<%= product.image %>"/>
+                <% if product.pic_url %>
+                  <img class="product-img" src="<%= product.pic_url %>"/>
+                <% elsif product.image_url %>
+                  <img class="product-img" src="<%= product.image_url %>"/>
+                <% end %>
                 </div>
                 <div class="col-sm-3">
                 <p><%= product.description %></p>

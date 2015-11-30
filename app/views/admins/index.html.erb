@@ -68,7 +68,11 @@
               <td><%= product.title %></td>
               <td><%= product.description %></td>
               <td><%= product.price %></td>
-              <td><img class="img img-responsive center-block" src="<%= product.image %>" style="height: 50px;" /></td>
+              <% if product.image_url %>
+              <td><img class="img img-responsive center-block" src="<%= product.image_url %>" style="height: 50px;" /></td>
+              <% elsif product.pic_url %>
+              <td><img class="img img-responsive center-block" src="<%= product.pic_url %>" style="height: 50px;" /></td>
+              <% end %>
               <td class="warning"><%= link_to 'Редактировать', edit_category_product_path(category, product) %></td>
               <td class="danger"><%= link_to 'Удалить', [category, product], method: :delete %></td>
             </tr>

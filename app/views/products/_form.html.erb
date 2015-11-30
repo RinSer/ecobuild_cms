@@ -25,6 +25,9 @@
   </div>
   <div class="field">
     <%= f.label "Картинка" %><br>
+    <p class="info">Добавьте изображение по ссылке с другого ресурса:</p>
+    <%= f.text_field :pic_url %>
+    <p class="info">Или загрузите изображение:</p>
     <%= f.file_field :image, class: 'upload' %>
   </div>
   <div class="actions">

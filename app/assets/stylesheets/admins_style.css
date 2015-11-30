@@ -1,3 +1,14 @@
+/* notice and alert */
+p#notice.msg {
+	color: #18bc9c;
+}
+
+p#alert.msg {
+	color: #f39c12;
+}
+
+/* end of notice and alert */
+
 a:hover {
 	color: #e74c3c !important;
 }
@@ -116,6 +127,11 @@ span.success > a {
 
 span.info > a {
 	color: #3498db;
+}
+
+p.info {
+	color: #3498db;
+	margin-bottom: 0;
 }
 
 /* Products' views */
