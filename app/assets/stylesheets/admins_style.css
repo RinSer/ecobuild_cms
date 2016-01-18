@@ -1,10 +1,12 @@
 /* notice and alert */
 p#notice.msg {
 	color: #18bc9c;
+	background: none!important;
 }
 
 p#alert.msg {
 	color: #f39c12;
+	background: none!important;
 }
 
 /* end of notice and alert */
@@ -14,7 +16,7 @@ a:hover {
 }
 
 ul.dropdown-menu {
-	background-color: #15a488;
+	background-color: #222222;
 	color: #2c3e4f !important;
 	position: relative;
 }
@@ -32,8 +34,8 @@ ul.dropdown-menu > li > a:hover {
 }
 
 .brand-clicked {
-	background-color: #15a488 !important;
-	color: #2c3e4f !important;
+	background-color: #000000 !important;
+	color: #ffffff !important;
 }
 
 .brand-clicked > a {
@@ -61,7 +63,7 @@ th {
 td > a {
 	text-decoration: none !important;
 	text-align: center !important;
-	color: #2c3e4f !important;
+	color: #ffffff !important;
 }
 
 .admins {

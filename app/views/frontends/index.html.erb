@@ -1,4 +1,5 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom: 100%;">
+  
+    <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 100%;">
       <div class="container-fluid collapse navbar-collapse" id="top">
         <div class="row">
           <div class="col-sm-3">
@@ -39,7 +40,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
-          <img class="img-responsive" src="house.jpg"/>
+          <img class="img-responsive" src="bw_house.jpg"/>
         </div>
         <div class="col-sm-6">
           <h3>Мы продаем:</h3>
@@ -56,25 +57,47 @@
       <div id="<%= category.title %>" class="product_block">
         <div class="container-fluid">
           <h2><%= category.title %></h2>
-            <% category.products.each do |product| %>
+            <% category.subcategories.each do |subcategory| %>
               <div class="row" style="padding-top: 5%;">
                 <div class="col-sm-2">
-                <h4><%= product.title %></h4>
+                <h4><%= subcategory.title %></h4>
                 </div>
                 <div class="col-sm-5">
-                <% if product.pic_url %>
-                  <img class="product-img" src="<%= product.pic_url %>"/>
-                <% elsif product.image_url %>
-                  <img class="product-img" src="<%= product.image_url %>"/>
+                <% if subcategory.pic_url %>
+                  <img class="subcategory-img" src="<%= subcategory.pic_url %>"/>
+                <% elsif subcategory.image_url %>
+                  <img class="subcategory-img" src="<%= subcategory.image_url %>"/>
                 <% end %>
                 </div>
                 <div class="col-sm-3">
-                <p><%= product.description %></p>
+                <p><%= subcategory.description %></p>
                 </div>
                 <div class="col-sm-2">
-                <p><strong>Цена:</strong> <%= product.price %></p>
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#price-list">Прайс-лист</button>
                 </div>
               </div>
+              <div id="price-list" class="collapse" style="margin-top: 1%"> <!-- Start of price-list -->
+                <% subcategory.products.each do |product| %>
+                <div class="row product_row">
+                  <div class="col-sm-3">
+                    <h4><%= product.title %></h4>
+                  </div>
+                  <div class="col-sm-3">
+                    <% if product.pic_url %>
+                      <img class="product-img" src="<%= product.pic_url %>"/>
+                    <% elsif product.image_url %>
+                      <img class="product-img" src="<%= product.image_url %>"/>
+                    <% end %>
+                  </div>
+                  <div class="col-sm-4">
+                    <p><%= product.description %></p>
+                  </div>
+                  <div class="col-sm-2">
+                    <p>Цена: <%= product.price %> руб.</p>
+                  </div>
+                </div>
+                <% end %>
+              </div> <!-- End of price-list -->
             <% end %>
         </div>
       </div>
@@ -82,7 +105,7 @@
 
     <div id="about" class="product_block">
       <div class="container-fluid">
-        <h2>О нас</h2>
+        <h2 style="margin-bottom: 0;">О нас</h2>
         <%= simple_format(@data.about) %>
       </div>
     </div>
@@ -99,13 +122,12 @@
         </div>
       </div>
     </div>
+  
 
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
       var shiftWindow = function() { scrollBy(0, -110) };
       if (location.hash) shiftWindow();

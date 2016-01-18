@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :admins
 
   resources :categories, only: [:new, :create, :edit, :update, :destroy] do
-    resources :products, only: [:new, :create, :edit, :update, :destroy]
+    resources :subcategories, only: [:new, :create, :edit, :update, :destroy] do
+      resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
+    end
   end
 
   resources :sessions, only: [:new, :create, :destroy]

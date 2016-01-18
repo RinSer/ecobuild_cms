@@ -1,14 +1,33 @@
 body {
 	padding-top: 110px;
-	color: #2c3e50;
+	color: #ffffff;
+	background: url("bw_low.jpg");
+	background-repeat: repeat;
+}
+
+input, textarea {
+	color: #222222;
+}
+
+h1, h2, h3, h4, p, td {
+	padding: 2px;
+	background: rgba(0, 0, 0, 0.55);
 }
 
 img {
     max-width: 100%;
 }
 
-.product-img {
+.subcategory-img {
 	max-height: 300px;
+}
+
+.product-img {
+	max-height: 100px;
+}
+
+.product_row {
+	border: 2px solid #222222;
 }
 
 span {
@@ -16,7 +35,7 @@ span {
 }
 
 #top {
-	background-color: #15A589;
+	background-color: #222222;
 	text-align: center;
 	color: #ffffff;
 }
@@ -41,6 +60,7 @@ span {
 
 h1 {
 	text-align: center;
+	margin-top: 5px!important;
 }
 
 h2 {
@@ -56,7 +76,7 @@ h2 {
 }
 
 #bottom {
-	background-color: #15A589;
+	background-color: #222222;
 	text-align: center;
 	color: #ffffff;
 }
@@ -66,5 +86,9 @@ h2 {
 }
 
 #bottom a {
-	color: #2c3e4f;
+	color: #ffffff;
+}
+
+.products_list {
+	margin-top: -110px;
 }
