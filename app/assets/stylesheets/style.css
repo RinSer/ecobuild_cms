@@ -19,6 +19,10 @@ h1, h2, h3, h4, p, td {
 	background: rgba(0, 0, 0, 0.55);
 }
 
+#about p {
+	margin-bottom: 0!important;
+}
+
 img {
     max-width: 100%;
 }
