@@ -9,7 +9,12 @@ input, textarea {
 	color: #222222;
 }
 
-h1, h2, h3, h4, p, li, td {
+h1, h2, h3, h4, p, td {
+	padding: 2px;
+	background: rgba(0, 0, 0, 0.55);
+}
+
+#about li {
 	padding: 2px;
 	background: rgba(0, 0, 0, 0.55);
 }
