@@ -46,7 +46,20 @@ img {
 
 .subcategory_col {
 	border: 2px solid #ffffff;
-	height: 100px;
+}
+
+.subcategory_col h4 {
+	margin: 0;
+}
+
+.subcategory_col p {
+	margin: 0;
+}
+
+@media (min-width: 767px) {
+    .subcategory_col {
+    	height: 100px;
+    }
 }
 
 span {
