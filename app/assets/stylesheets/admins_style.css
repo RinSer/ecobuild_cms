@@ -16,7 +16,7 @@ a:hover {
 }
 
 ul.dropdown-menu {
-	background-color: #222222;
+	background-color: #18bc9c;
 	color: #2c3e4f !important;
 	position: relative;
 }
@@ -31,11 +31,6 @@ ul.dropdown-menu > li > a:hover {
 
 #admin-panel {
 	background-color: #2c3e4f !important;
-}
-
-.brand-clicked {
-	background-color: #000000 !important;
-	color: #ffffff !important;
 }
 
 .brand-clicked > a {
