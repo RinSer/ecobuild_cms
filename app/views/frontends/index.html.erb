@@ -79,20 +79,20 @@
               <div id="price-list_<%= category.id.to_s + '_' + subcategory.id.to_s %>" class="collapse" style="margin-top: 1%"> <!-- Start of price-list -->
                 <% subcategory.products.each do |product| %>
                 <div class="row product_row subcategory_row">
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 subcategory_col">
                     <h4><%= product.title %></h4>
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 subcategory_col">
                     <% if product.pic_url %>
                       <img class="product-img" src="<%= product.pic_url %>"/>
                     <% elsif product.image_url %>
                       <img class="product-img" src="<%= product.image_url %>"/>
                     <% end %>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-4 subcategory_col">
                     <p><%= product.description %></p>
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2 subcategory_col">
                     <p>Цена: <%= product.price %> руб.</p>
                   </div>
                 </div>

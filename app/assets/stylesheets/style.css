@@ -32,7 +32,8 @@ img {
 }
 
 .product-img {
-	max-height: 100px;
+	max-height: 100%;
+	padding: 1px;
 }
 
 .product_row {
@@ -41,6 +42,11 @@ img {
 
 .subcategory_row {
 	background: rgba(0, 0, 0, 0.75);
+}
+
+.subcategory_col {
+	border: 2px solid #ffffff;
+	height: 100px;
 }
 
 span {
