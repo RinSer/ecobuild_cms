@@ -58,7 +58,8 @@ th {
 td > a {
 	text-decoration: none !important;
 	text-align: center !important;
-	color: #ffffff !important;
+	color: #2c3e4f !important;
+	text-decoration: underline!important;
 }
 
 .admins {
@@ -132,6 +133,12 @@ p.info {
 }
 
 /* Products' views */
+.products_list {
+	background-color: #bac4c5;
+	min-height: 100%;
+	max-height: 100%;
+}
+
 .products {
 	margin-top: -110px;
 	background-color: #bac4c5;
