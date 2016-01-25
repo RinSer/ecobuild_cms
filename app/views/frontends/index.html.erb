@@ -73,10 +73,10 @@
                 <p><%= subcategory.description %></p>
                 </div>
                 <div class="col-sm-2">
-                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#price-list_<%= category._id + '_' + subcategory._id %>">Прайс-лист</button>
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#price-list_<%= category.id.to_s + '_' + subcategory.id.to_s %>">Прайс-лист</button>
                 </div>
               </div>
-              <div id="price-list_<%= category._id + '_' + subcategory._id %>" class="collapse" style="margin-top: 1%"> <!-- Start of price-list -->
+              <div id="price-list_<%= category.id.to_s + '_' + subcategory.id.to_s %>" class="collapse" style="margin-top: 1%"> <!-- Start of price-list -->
                 <% subcategory.products.each do |product| %>
                 <div class="row product_row">
                   <div class="col-sm-3">
