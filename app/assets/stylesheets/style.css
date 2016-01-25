@@ -1,5 +1,5 @@
 body {
-	padding-top: 110px;
+	padding-top: 70px;
 	color: #2c3e50;
 	background: url("bw_low.jpg");
 	background-repeat: repeat;
@@ -9,11 +9,6 @@ body {
 input, textarea {
 	color: #2c3e50;
 }
-
-/*h1, h2, h3, h4, p, td {
-	padding: 2px;
-	background: rgba(21, 165, 137, 0.55);
-}*/
 
 a.list-group-item {
 	color: #2c3e50;
@@ -106,6 +101,7 @@ span {
 h1 {
 	text-align: center;
 	margin-top: -2px!important;
+	padding: 2px;
 }
 
 h2 {

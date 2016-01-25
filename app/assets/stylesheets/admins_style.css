@@ -1,3 +1,7 @@
+#admins-page {
+	margin-top: 0.5px;
+}
+
 /* notice and alert */
 p#notice.msg {
 	color: #18bc9c;
@@ -137,6 +141,7 @@ p.info {
 	background-color: #bac4c5;
 	min-height: 100%;
 	max-height: 100%;
+	padding-top: 40px;
 }
 
 .products {
