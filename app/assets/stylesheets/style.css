@@ -36,7 +36,7 @@ img {
 }
 
 .subcategory-img {
-	max-height: 300px;
+	max-height: 200px;
 }
 
 .product-img {
@@ -59,6 +59,10 @@ img {
 
 .subcategory_col p {
 	margin: 0;
+}
+
+.category-col {
+	padding-top: 50px;
 }
 
 @media (min-width: 767px) {

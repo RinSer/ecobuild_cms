@@ -58,8 +58,8 @@
         <div class="container-fluid">
           <h2><%= category.title %></h2>
             <% category.subcategories.each do |subcategory| %>
-              <div class="row" style="padding-top: 5%;">
-                <div class="col-sm-2">
+              <div class="row" style="padding: 1%;">
+                <div class="col-sm-2 category-col">
                 <h4><%= subcategory.title %></h4>
                 </div>
                 <div class="col-sm-5">
@@ -69,10 +69,10 @@
                   <img class="subcategory-img" src="<%= subcategory.image_url %>"/>
                 <% end %>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 category-col">
                 <p><%= subcategory.description %></p>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 category-col">
                 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#price-list_<%= category.id.to_s + '_' + subcategory.id.to_s %>">Прайс-лист</button>
                 </div>
               </div>
