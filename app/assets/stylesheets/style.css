@@ -31,6 +31,10 @@ a.list-group-item {
 	margin-bottom: 0!important;
 }
 
+#about h2 {
+	padding-bottom: 5%!important;
+}
+
 img {
     max-width: 100%;
 }
