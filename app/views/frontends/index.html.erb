@@ -64,9 +64,9 @@
                 </div>
                 <div class="col-sm-5">
                 <% if subcategory.pic_url %>
-                  <img class="subcategory-img" src="<%= subcategory.pic_url %>"/>
+                  <img class="subcategory-img img-responsive center-block" src="<%= subcategory.pic_url %>"/>
                 <% elsif subcategory.image_url %>
-                  <img class="subcategory-img" src="<%= subcategory.image_url %>"/>
+                  <img class="subcategory-img img-responsive center-block" src="<%= subcategory.image_url %>"/>
                 <% end %>
                 </div>
                 <div class="col-sm-3 category-col">
@@ -84,9 +84,9 @@
                   </div>
                   <div class="col-sm-3 subcategory_col">
                     <% if product.pic_url %>
-                      <img class="product-img" src="<%= product.pic_url %>"/>
+                      <img class="product-img img-responsive center-block" src="<%= product.pic_url %>"/>
                     <% elsif product.image_url %>
-                      <img class="product-img" src="<%= product.image_url %>"/>
+                      <img class="product-img img-responsive center-block" src="<%= product.image_url %>"/>
                     <% end %>
                   </div>
                   <div class="col-sm-4 subcategory_col">
